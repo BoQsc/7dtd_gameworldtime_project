@@ -1,0 +1,2 @@
+C:\Users\Windows10\source\repos\SpawnButtonModlet\obj\Debug\SpawnButtonModlet.csproj.AssemblyReference.cache
+C:\Users\Windows10\source\repos\SpawnButtonModlet\obj\Debug\SpawnButtonModlet.csproj.CoreCompileInputs.cache

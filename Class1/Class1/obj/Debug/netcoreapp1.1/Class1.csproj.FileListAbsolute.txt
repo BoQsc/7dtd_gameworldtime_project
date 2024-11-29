@@ -1,0 +1,4 @@
+C:\Users\Windows10\source\repos\Class1\Class1\obj\Debug\netcoreapp1.1\Class1.csproj.AssemblyReference.cache
+C:\Users\Windows10\source\repos\Class1\Class1\obj\Debug\netcoreapp1.1\Class1.csproj.CoreCompileInputs.cache
+C:\Users\Windows10\source\repos\Class1\Class1\obj\Debug\netcoreapp1.1\Class1.AssemblyInfoInputs.cache
+C:\Users\Windows10\source\repos\Class1\Class1\obj\Debug\netcoreapp1.1\Class1.AssemblyInfo.cs

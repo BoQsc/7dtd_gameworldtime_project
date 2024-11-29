@@ -1,0 +1,54 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Windows10\\source\\repos\\Class1\\Class1\\Class1.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Windows10\\source\\repos\\Class1\\Class1\\Class1.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Windows10\\source\\repos\\Class1\\Class1\\Class1.csproj",
+        "projectName": "Class1",
+        "projectPath": "C:\\Users\\Windows10\\source\\repos\\Class1\\Class1\\Class1.csproj",
+        "packagesPath": "C:\\Users\\Windows10\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Windows10\\source\\repos\\Class1\\Class1\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Windows10\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp1.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp1.1": {
+            "targetAlias": "netcoreapp1.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp1.1": {
+          "targetAlias": "netcoreapp1.1",
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[1.1.2, )",
+              "autoReferenced": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

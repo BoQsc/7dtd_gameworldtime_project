@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "NpyPHOE9W0IIxEuFz7H0akDjFKKb9UeX2xqkuVbLPyaPKFUJ8LW2Ne5nCsMC/q1bxfD07bxT53huyXXgv834Xw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Windows10\\source\\repos\\SpawnButtonModlet\\SpawnButtonModlet.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Windows10\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

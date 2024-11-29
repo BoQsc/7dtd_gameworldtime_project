@@ -1,0 +1,2 @@
+C:\Users\Windows10\source\repos\PlayerFriendList\obj\Debug\PlayerFriendList.csproj.AssemblyReference.cache
+C:\Users\Windows10\source\repos\PlayerFriendList\obj\Debug\PlayerFriendList.csproj.CoreCompileInputs.cache

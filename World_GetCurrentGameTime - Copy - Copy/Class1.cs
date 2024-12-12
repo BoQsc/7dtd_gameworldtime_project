@@ -5,11 +5,8 @@ public class NighttimeTimeScaleModlet : IModApi
 {
     private const float DaytimeTimeScale = 1.0f;
     private const float NighttimeTimeScale = 0.1f;
-    private const int NightStartHour = 22; // 10 PM
-    private const int NightEndHour = 4;    // 4 AM
 
     private float currentTimeScale = DaytimeTimeScale;
-    private int lastHour = -1;
     private float delayTimer = 0f; // Timer for delay
 
     public void InitMod(Mod modInstance)
@@ -27,15 +24,14 @@ public class NighttimeTimeScaleModlet : IModApi
         {
             delayTimer = 0f; // Reset timer
 
-            int currentHour = GetInGameHour();
-            bool isNighttime = IsNighttime(currentHour);
+            bool isNighttime = IsNighttime();
             float desiredTimeScale = isNighttime ? NighttimeTimeScale : DaytimeTimeScale;
 
             //if (desiredTimeScale != Time.timeScale)
             //{
             //    Time.timeScale = desiredTimeScale;
             //    currentTimeScale = desiredTimeScale;
-            //    Debug.Log($"Time scale set to {desiredTimeScale} at hour {currentHour}");
+            //    Debug.Log($"Time scale set to {desiredTimeScale}");
             //}
             //else
             //{
@@ -45,42 +41,28 @@ public class NighttimeTimeScaleModlet : IModApi
             // Check for night start and end
             if (isNighttime)
             {
-                             
-                    ExecuteTimeOfDayIncPerSec(60);
-                    Debug.Log("Night started. Time of day increment per second set to 60.")
-
+                ExecuteTimeOfDayIncPerSec(60);
+                Debug.Log("Night started. Time of day increment per second set to 60.");
             }
             else
             {
                 ExecuteTimeOfDayIncPerSec(6);
                 Debug.Log("Night ended. Time of day increment per second set to 6.");
             }
-
-
         }
     }
 
-    private int GetInGameHour()
+    private bool IsNighttime()
     {
         if (GameManager.Instance != null && GameManager.Instance.World != null)
         {
-            ulong worldTime = GameManager.Instance.World.worldTime;
-            int hours = (int)(worldTime % 24);
-            Debug.Log($"worldTime: {worldTime}, hours: {hours}");
-            return hours;
+            return !GameManager.Instance.World.IsDaytime();
         }
         else
         {
-            Debug.LogWarning("GameManager or World is null. Defaulting hour to 0.");
-            return 0;
+            Debug.LogWarning("GameManager or World is null. Defaulting to daytime.");
+            return false;
         }
-    }
-
-    private bool IsNighttime(int hour)
-    {
-        bool isNight = hour >= NightStartHour || hour < NightEndHour;
-        Debug.Log($"Hour {hour} is nighttime: {isNight}");
-        return isNight;
     }
 
     private void ExecuteTimeOfDayIncPerSec(int value)

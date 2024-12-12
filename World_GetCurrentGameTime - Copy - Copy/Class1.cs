@@ -10,6 +10,7 @@ public class NighttimeTimeScaleModlet : IModApi
 
     private float currentTimeScale = DaytimeTimeScale;
     private int lastHour = -1;
+    private float delayTimer = 0f; // Timer for delay
 
     public void InitMod(Mod modInstance)
     {
@@ -19,36 +20,43 @@ public class NighttimeTimeScaleModlet : IModApi
 
     private void GameUpdateHandler()
     {
-        int currentHour = GetInGameHour();
-        bool isNighttime = IsNighttime(currentHour);
-        float desiredTimeScale = isNighttime ? NighttimeTimeScale : DaytimeTimeScale;
+        // Update timer
+        delayTimer += Time.deltaTime;
 
-        //if (desiredTimeScale != Time.timeScale)
-        //{
-        //    Time.timeScale = desiredTimeScale;
-        //    currentTimeScale = desiredTimeScale;
-        //    Debug.Log($"Time scale set to {desiredTimeScale} at hour {currentHour}");
-        //}
-        //else
-        //{
-        //    Debug.Log("Time scale remains at " + currentTimeScale);
-        //}
-
-        // Check for night start and end
-        if (IsNighttime(currentHour))
+        if (delayTimer >= 2f) // Check if 2 seconds have passed
         {
-            if (currentHour == NightStartHour)
+            delayTimer = 0f; // Reset timer
+
+            int currentHour = GetInGameHour();
+            bool isNighttime = IsNighttime(currentHour);
+            float desiredTimeScale = isNighttime ? NighttimeTimeScale : DaytimeTimeScale;
+
+            //if (desiredTimeScale != Time.timeScale)
+            //{
+            //    Time.timeScale = desiredTimeScale;
+            //    currentTimeScale = desiredTimeScale;
+            //    Debug.Log($"Time scale set to {desiredTimeScale} at hour {currentHour}");
+            //}
+            //else
+            //{
+            //    Debug.Log("Time scale remains at " + currentTimeScale);
+            //}
+
+            // Check for night start and end
+            if (isNighttime)
             {
-                ExecuteTimeOfDayIncPerSec(60);
-                Debug.Log("Night started. Time of day increment per second set to 60.");
+                             
+                    ExecuteTimeOfDayIncPerSec(60);
+                    Debug.Log("Night started. Time of day increment per second set to 60.")
+
             }
-            else if (currentHour == NightEndHour)
+            else
             {
                 ExecuteTimeOfDayIncPerSec(6);
                 Debug.Log("Night ended. Time of day increment per second set to 6.");
             }
 
-            lastHour = currentHour;
+
         }
     }
 

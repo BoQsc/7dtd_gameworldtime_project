@@ -35,7 +35,7 @@ public class NighttimeTimeScaleModlet : IModApi
         //}
 
         // Check for night start and end
-        if (lastHour != currentHour)
+        if (IsNighttime(currentHour))
         {
             if (currentHour == NightStartHour)
             {
